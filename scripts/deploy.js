@@ -1,13 +1,13 @@
 const hre = require("hardhat");
 
 async function main() {
-    const SimpleStorage = await hre.ethers.getContractFactory("SimpleStorage");
+    const EtherWallet = await hre.ethers.getContractFactory("EtherWallet");
 
-    const simpleStorage = await SimpleStorage.deploy();
+    const etherWallet = await EtherWallet.deploy();
 
-    await simpleStorage.deployed();
+    await etherWallet.deployed();
 
-    console.log("SimpleStorage deployed to:", simpleStorage.address);
+    console.log("Wallet deployed to:", etherWallet.address);
 }
 
 main().catch((error) => {
