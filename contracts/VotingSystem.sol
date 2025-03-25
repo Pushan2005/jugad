@@ -9,12 +9,15 @@ contract VotingSystem {
         uint256 voteCount;
     }
 
+    address public admin;
+
     mapping(address => bool) hasVoted;
     Candidate[] public candidates;
 
     event VoteCasted(address voter, string candidateName);
 
     constructor(string[] memory _candidateNames) {
+        admin = msg.sender;
         for (uint256 i = 0; i < _candidateNames.length; i++) {
             candidates.push(Candidate({
                 name: _candidateNames[i],
